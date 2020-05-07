@@ -232,7 +232,7 @@ This is because, by default, all files on the server are owned by the \texttt{ro
 Let's take ownership of this directory: so that we can make changes:
 
 \begin{minted}{bash}
-    sudo chown -R ubuntu /var/www/html/
+    sudo chown -R ubuntu /var/www/
 \end{minted}
 
 To check it's working, create an index page on your server:
@@ -349,7 +349,7 @@ First, add \texttt{index.php} to the acceptable index files:
 Scroll down to \texttt{root} and change it to:
 
 \begin{minted}{nginx}
-    root /var/www/<repo-name>/public
+    root /var/www/<repo-name>/public;
 \end{minted}
 
 We'll also need to update the \texttt{location} entries:
@@ -500,7 +500,7 @@ Then restart Nginx:
 Next, we install \texttt{certbot} on our AWS EC2 instance, which we can use to have SSL certificates issued for us, with:
 
 \begin{minted}{bash}
-    sudo apt-get install certbot python-certbot-nginx
+    sudo apt-get install -y certbot python-certbot-nginx
 \end{minted}
 
 Then we issue a certificate:
